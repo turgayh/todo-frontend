@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -39,5 +39,10 @@ jobs:
     - name: Kill local
       run: pm2 kill
       
-    - name: Build
-      run: npm run build
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Deploy app
+        run: curl -X POST -d {} "https://webhooks.amplify.us-east-2.amazonaws.com/prod/webhooks?id=0abe7bf9-7bfe-46de-b46a-79dc0bd7827c&token=5UEoQDcXevDnnCyFflL296vpbo2d85a3EYMlTimE4JI&operation=startbuild" -H "Content-Type:application/json"
