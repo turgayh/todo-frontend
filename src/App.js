@@ -1,13 +1,8 @@
 import { useState } from 'react'
 import "./App.css"
+import { ListTask } from './components/index';
 
-function Todo({ todo }) {
-  return (
-    <div className="todo">
-      {todo.text}
-    </div>
-  );
-};
+
 
 function TodoForm({ addTodo }) {
   const [value, setValue] = useState("");
@@ -49,17 +44,7 @@ function App() {
   return (
     <div className="App">
       <TodoForm addTodo={addTodo} />
-
-      <div className="todo-list">
-        {listOfTask.map((todo, index) => (
-          <Todo
-            key={index}
-            index={index}
-            todo={todo}
-          />
-        ))}
-      </div>
-
+      <ListTask tasks={listOfTask} />
     </div>
   );
 }
