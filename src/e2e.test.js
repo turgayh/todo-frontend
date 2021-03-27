@@ -7,7 +7,7 @@ beforeAll(async () => {
     page = await browser.newPage()
 })
 describe('Todo App', () => {
-    test('Added new  task to empty task list successfully', async () => {
+    test('Added new task to empty task list successfully', async () => {
         const newTask = "buy some milk";
 
         await page.goto(`${appUrlBase}/`)
