@@ -1,4 +1,4 @@
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { ListTask } from './index';
 describe("Component ListTask", () => {
     test("ListTask should be render", () => {
