@@ -34,7 +34,7 @@ function TodoForm({ addTodo }) {
 export default function TodoAppPage() {
     const [listOfTask, setlistOfTask] = useState([])
 
-    const service = new TaskService("http://localhost", 8080);
+    const service = new TaskService("https://todo-backend-bhl6p.ondigitalocean.app", '');;
 
     const addTodo = text => {
         const newTask = new Task(null, text, null);
