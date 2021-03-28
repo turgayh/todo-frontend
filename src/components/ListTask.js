@@ -1,7 +1,7 @@
 function Todo({ todo }) {
     return (
         <div className="todo">
-            {todo.text}
+            {todo.description}
         </div>
     );
 };
@@ -9,10 +9,10 @@ function Todo({ todo }) {
 function ListTask({ tasks }) {
     return (
         <div className="todo-list">
-            {tasks.map((todo, index) => (
+            {tasks.map((todo) => (
                 <Todo
-                    key={index}
-                    index={index}
+                    key={todo.id}
+                    index={todo.id}
                     todo={todo}
                 />
             ))}
