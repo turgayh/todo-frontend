@@ -11,6 +11,7 @@ beforeAll(async () => {
     page = await browser.newPage()
 })
 describe('Todo App', () => {
+
     test('Added new task to non-empty task list successfully', async () => {
         const firstTask = uuidv4();
         const secondTask = uuidv4();

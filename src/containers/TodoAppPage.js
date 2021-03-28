@@ -1,7 +1,9 @@
+
 import { useState, useEffect } from 'react'
 import { ListTask } from '../components';
 import Task from '../model/task';
 import TaskService from '../service/task.service';
+
 function TodoForm({ addTodo }) {
     const [value, setValue] = useState("");
 
@@ -31,6 +33,7 @@ function TodoForm({ addTodo }) {
 
 export default function TodoAppPage() {
     const [listOfTask, setlistOfTask] = useState([])
+
     const service = new TaskService("http://localhost", 8080);
 
     const addTodo = text => {
@@ -46,6 +49,7 @@ export default function TodoAppPage() {
             setlistOfTask(res.data)
         });
     }, []);
+
 
     return (
         <div>
