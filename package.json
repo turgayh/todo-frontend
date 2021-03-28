@@ -9,16 +9,16 @@
     "react": "^16.0.2",
     "react-dom": "^16.0.2",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "axios": "0.18.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test:unit": "react-scripts test",
     "test:uat": "react-scripts test",
-    "test:contract": "react-scripts test ",
-    "eject": "react-scripts eject",
-    "test": "jest --config=./config/jest.config.json --coverage"
+    "test": "jest --config=./config/jest.config.json --coverage",
+    "test:contract": "cross-env CI=true react-scripts test --runInBand --setupFiles ./__tests__/contract/setup.js --setupFilesAfterEnv ./__tests__/contract/jest-wrapper.js --testMatch \"**/*.test.pact.js\""
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +39,10 @@
     ]
   },
   "devDependencies": {
+    "@pact-foundation/pact": "7.0.1",
+    "@pact-foundation/pact-node": "6.20.0",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "puppeteer": "^8.0.0"
