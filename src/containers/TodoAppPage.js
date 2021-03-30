@@ -4,6 +4,7 @@ import { ListTask } from '../components';
 import Task from '../model/task';
 import TaskService from '../service/task.service';
 
+const API = require('../constants/api')
 function TodoForm({ addTodo }) {
     const [value, setValue] = useState("");
 
@@ -34,7 +35,7 @@ function TodoForm({ addTodo }) {
 export default function TodoAppPage() {
     const [listOfTask, setlistOfTask] = useState([])
 
-    const service = new TaskService("https://todo-backend-bhl6p.ondigitalocean.app", '');;
+    const service = new TaskService(API.HOST, API.PORT);;
 
     const addTodo = text => {
         const newTask = new Task(null, text, null);
