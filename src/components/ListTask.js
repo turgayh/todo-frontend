@@ -8,10 +8,10 @@ function Todo({ todo }) {
 
 function ListTask({ tasks }) {
     return (
-        <div className="todo-list">
-            {tasks.map((todo) => (
+        <div name='todo-list' className="todo-list">
+            {tasks.map((todo, index) => (
                 <Todo
-                    key={todo.id}
+                    key={index}
                     index={todo.id}
                     todo={todo}
                 />

@@ -12,7 +12,7 @@ beforeAll(async () => {
 })
 describe('Todo App', () => {
 
-    test('Added new task to non-empty task list successfully', async () => {
+    test('Added new task to task list successfully', async () => {
         const firstTask = uuidv4();
         const secondTask = uuidv4();
 
@@ -24,11 +24,15 @@ describe('Todo App', () => {
         await page.click("input[name=input-task]");
         await page.type("input[name=input-task]", secondTask);
         await page.click("button[name=button-add-task]");
-        const task = await page.$eval('.todo:last-child', elem => elem.innerHTML)
-        expect(task).toEqual(firstTask);
+        await new Promise(r => setTimeout(r, 2000));
+        const tasks = await page.evaluate(() => {
+            return document.querySelector('.todo:last-child').textContent
+        });
+        expect(tasks).toEqual(secondTask);
 
     })
 })
 afterAll(() => {
     browser.close()
+
 })
